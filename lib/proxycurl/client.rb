@@ -4,7 +4,7 @@ module Proxycurl
   class Client
     include HTTParty
 
-    base_uri "https://nubela.co/proxycurl/api/"
+    base_uri "https://nubela.co/proxycurl/api"
     format :json
 
     def initialize(api_key)
@@ -23,20 +23,20 @@ module Proxycurl
       } })
       response.parsed_response
     end
-  end
 
-  def linkedin_person_profile(url)
-    response = self.class.get("/linkedin", { query: {
-      skills: :include,
-      inferred_salary: :include,
-      personal_email: :include,
-      personal_contact_number: :include,
-      twitter_profile_id: :include,
-      facebook_profile_id: :include,
-      github_profile_id: :include,
-      extra: :include,
-      url: url,
-    } })
-    response.parsed_response
+    def linkedin_person_profile(url)
+      response = self.class.get("/v2/linkedin", { query: {
+        skills: :include,
+        inferred_salary: :include,
+        personal_email: :include,
+        personal_contact_number: :include,
+        twitter_profile_id: :include,
+        facebook_profile_id: :include,
+        github_profile_id: :include,
+        extra: :include,
+        url: url,
+      } })
+      response.parsed_response
+    end
   end
 end
