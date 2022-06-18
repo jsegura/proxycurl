@@ -1,6 +1,6 @@
 = proxycurl
 
-Description goes here.
+Client for accessing proxycurl
 
 == Contributing to proxycurl
  
