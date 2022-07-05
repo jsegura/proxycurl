@@ -24,6 +24,11 @@ module Proxycurl
       response.parsed_response
     end
 
+    def linkedin_company_lookup(params)
+      response = self.class.get("/linkedin/company/resolve", { query: params })
+      response.parsed_response
+    end
+
     def linkedin_person_profile(url)
       response = self.class.get("/v2/linkedin", { query: {
         skills: :include,
@@ -36,6 +41,11 @@ module Proxycurl
         extra: :include,
         url: url,
       } })
+      response.parsed_response
+    end
+
+    def linkedin_company_employees(params)
+      response = self.class.get("/linkedin/company/employees", { query: params })
       response.parsed_response
     end
   end
