@@ -48,5 +48,20 @@ module Proxycurl
       response = self.class.get("/linkedin/company/employees", { query: params })
       response.parsed_response
     end
+
+    def credit_balance
+      response = self.class.get("/credit-balance")
+      response.parsed_response
+    end
+
+    def linkedin_company_count(params)
+      response = self.class.get("/linkedin/company/employees/count", { query: params })
+      response.parsed_response
+    end
+
+    def linkedin_company_employees(params)
+      response = self.class.get("/linkedin/company/employees/", { query: params })
+      response.parsed_response
+    end
   end
 end
